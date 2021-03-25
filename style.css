@@ -45,6 +45,20 @@ body {
 .todo__item:hover {
   cursor: default;
 }
+.btn-style{
+  display: inline-block;
+  margin-left: 50%;
+  font-size: 1rem;
+  padding: .4rem;
+  border-color: none;
+  border-radius: 5px;
+  
+
+  
+}
+.remove{
+  display: none;
+}
 .done {
   text-decoration: line-through;
   border-bottom: 2px solid rgb(65, 52, 32);

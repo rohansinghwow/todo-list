@@ -4,6 +4,13 @@ const todoItemsEl = document.querySelector(".todo__list")
 
 const todoItemsAll = document.querySelectorAll(".todo__item")
 
+//const delBtnEl = document.querySelector(".del-btn")
+    const delBtn = document.createElement("button")
+    delBtn.classList.add("btn-style")
+    delBtn.textContent = "Remove"
+
+
+
 function showInput(){
 
     todoInputEl.addEventListener("keypress" , function(event){
@@ -11,7 +18,10 @@ function showInput(){
         if(event.keyCode === 13){
             let listItem = nodeConverter(todoInputEl.value)
             
-            todoItemsEl.appendChild(listItem)
+           
+
+            
+            todoItemsEl.insertBefore(listItem,todoItemsEl.childNodes[0])
             todoInputEl.value = ""
 
         }
@@ -31,12 +41,30 @@ function taskDone(){
     
 }
 
+function listRemover(){
+delBtn.addEventListener("click", function(event){
+    event.target.parentNode.remove()
+})
+
+}
+
+
 function nodeConverter(text){
     const newListElement =  document.createElement("li")
+    
+    
+
     newListElement.classList.add("todo__item")
     newListElement.textContent = text
+    newListElement.appendChild(delBtn)
+    console.log(newListElement)
+
+    
     
     return newListElement
 }
+
 taskDone();
 showInput();
+listRemover();
+
